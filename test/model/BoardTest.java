@@ -32,4 +32,22 @@ public class BoardTest {
         board.setPlayerAt(1, 1, Player.O);
         assertEquals(Player.O, board.getPlayerAt(1, 1));
     }
+
+    @Test
+    public void testEmptyBoardAllTilesShouldBeEmpty() {
+        Board board = new Board();
+        assertEquals(BoardSettings.BOARD_SIZE * BoardSettings.BOARD_SIZE, board.emptySquares());
+    }
+
+    @Test
+    public void testBoardWithNoEmptySquares() {
+        Board board = new Board();
+        for (int i = 0; i < BoardSettings.BOARD_SIZE; i++) {
+            for (int j = 0; j < BoardSettings.BOARD_SIZE; j++) {
+                board.setPlayerAt(i, j, Player.X);
+            }
+        }
+
+        assertEquals(0, board.emptySquares());
+    }
 }
