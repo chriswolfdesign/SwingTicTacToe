@@ -19,6 +19,19 @@ public class Board {
         }
     }
 
+    public int emptySquares() {
+        int counter = 0;
+        for (int i = 0; i < BoardSettings.BOARD_SIZE; i++) {
+            for (int j = 0; j < BoardSettings.BOARD_SIZE; j++) {
+                if (tiles[i][j] == Player.NONE) {
+                    counter++;
+                }
+            }
+        }
+
+        return counter;
+    }
+
     public void setPlayerAt(int row, int col, Player player) {
         this.tiles[row][col] = player;
     }
